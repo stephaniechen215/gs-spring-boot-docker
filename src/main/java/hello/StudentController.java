@@ -1,5 +1,6 @@
 package hello;
 
+import entity.Student2;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,13 +12,13 @@ public class StudentController {
 
     @GetMapping("/student")
     public String greetingForm(Model model) {
-        Student theStudent = new Student();
+        Student2 theStudent = new Student2();
         model.addAttribute("student", theStudent);
         return "student";
     }
 
     @PostMapping("/student")
-    public String greetingSubmit(@ModelAttribute Student student) {
+    public String greetingSubmit(@ModelAttribute Student2 student) {
         return "result";
     }
 

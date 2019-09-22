@@ -1,12 +1,15 @@
-package hello;
+package entity;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Student {
-
+public class Student2 {
     private String firstName;
     private String lastName;
     private String country;
@@ -14,9 +17,16 @@ public class Student {
     private String favoriteLanguage;
     private List<String> favoriteLanguageList = new ArrayList<>();
 
-    public Student(){
+    public Student2() {
+        constructCountryOptions();
+        constructFavoriteLanguageList();
+    }
+
+    private void constructCountryOptions(){
         countyOptions.put("CAN", "Canada");
         countyOptions.put("NL", "Netherlands");
+    }
+    private void constructFavoriteLanguageList(){
         favoriteLanguageList.add("Java");
         favoriteLanguageList.add("C#");
         favoriteLanguageList.add("Python");
