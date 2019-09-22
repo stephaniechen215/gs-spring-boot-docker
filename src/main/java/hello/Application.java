@@ -4,11 +4,8 @@ import entity.Student;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
-import org.hibernate.query.NativeQuery;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
-import java.util.List;
 
 @SpringBootApplication
 public class Application {
@@ -22,21 +19,21 @@ public class Application {
                 .buildSessionFactory();
         Session session = sessionFactory.getCurrentSession();
 
-        try{
-
-            Student student = new Student("Stephanie", "Chen", "yoyoyo@gmail.com");
+        try {
             session.beginTransaction();
+
+            // Insert a student
+            Student student = new Student("Stephanie", "Chen", "yoyoyo@gmail.com");
             session.save(student);
+            // Query a student
             Student tempStudent = session.get(Student.class, student.getId());
             System.out.println(tempStudent);
 
             session.getTransaction().commit();
-
-        }catch (Exception ex){
+        } catch (Exception ex) {
             ex.printStackTrace();
-        }finally {
+        } finally {
             sessionFactory.close();
         }
     }
-
 }

@@ -9,7 +9,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Student2 {
+public class Programmer {
     private String firstName;
     private String lastName;
     private String country;
@@ -17,7 +17,7 @@ public class Student2 {
     private String favoriteLanguage;
     private List<String> favoriteLanguageList = new ArrayList<>();
 
-    public Student2() {
+    public Programmer() {
         constructCountryOptions();
         constructFavoriteLanguageList();
     }
